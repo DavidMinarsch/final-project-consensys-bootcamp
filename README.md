@@ -38,9 +38,10 @@ Install all dependencies for client development:
 ```
 cd client && npm install
 ```
+Create an infura.io account and generate a private key: https://infura.io/docs. Add the key in a file called `.infura_key`.
 
 ## For development (non-upgradable route):
-Note: This approach is only included to meet the project requirements. The preferred approach is described in the next section. This approach deploys the contract to the test network without initializing it. This projects uses ZeppelinOS for which contract initialization is handled with an `initialize()` function rather than a `constructor()`, hence `truffle migrate` does not pick up on the initialization. This contract will not be upgradeable (logic and storage are not separated).
+Note: This approach is only included to meet the project requirements. The preferred approach is described in the next section. This approach deploys the contract to the test network without initializing it. This projects uses ZeppelinOS for which contract initialization is handled with an `initialize()` function rather than a `constructor()`, hence `truffle migrate` does not pick up on the initialization. This contract will not be upgradeable (logic and storage are not separated). Please set up the `.env` and `.secret` files as described in the next section.
 
 1. Navigate to project root and delete all historic compiled contracts:
 ```
@@ -94,6 +95,7 @@ export BENEFICIARY_ADDRESS=0xFFcf8FDEE72ac11b5c542428B35EEF5769C409f0
 export PAUSER_ADDRESS=0x22d491Bde2303f2f43325b2108D26f1eAbA1e32b
 ```
 Note, to send transactions to the contract we **MUST** use a different address than the one which was used to deploy the contract (read more on this at [ZeppelinOS](https://docs.zeppelinos.org/docs/deploying.html)).
+Take the mnemonic listed and add it to a `.secret` file.
 
 
 3. In a second terminal window compile and add the contracts to zeppelin os project:
